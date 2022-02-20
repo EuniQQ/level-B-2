@@ -48,7 +48,10 @@
             email:$("#email").val()
         }
 
-        if(regs.acc == '' || regs.pw=='' || regs.pw2=='' || regs.email==''){
+        //寫法一：
+        //regs的acc是空值
+        if(regs.acc == '' || regs.pw=='' || regs.pw2=='' || regs.email==''){ 
+        //寫法二：if(Object.values(form).indexOf('')>=0)
             alert("不得空白")
         }else{
             if(regs.pw!=regs.pw2){
@@ -56,12 +59,15 @@
             }else{
                 //$.post('表單送出目的',{一堆資料內容},送出後做甚麼動作)=>{}
                 $.post('api/chk_acc.php',{acc:regs.acc},(chk)=>{
-                                        
-                    if(parseInt(chk)==1){
+                                    //acc:資料來源是regs裡的acc
+                                    //(chk)可自取名稱(ex.result)，表示檢查完的結果
+                    
+                    //用parseInt()包起來，確保它一定是數字                
+                    if(parseInt(chk)==1){ //要與後端人員說好，這裡預設true(1)/faulse(0)
                         alert("帳號重複")
                     }else{
-                        delete regs.pw2;
-                        $.post('api/reg.php',regs,()=>{
+                        delete regs.pw2;          //result
+                        $.post('api/reg.php',regs,(res)=>{
                             alert("註冊完成,歡迎加入")
                             location.href='index.php?do=login'
                                             
