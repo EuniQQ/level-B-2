@@ -66,11 +66,13 @@
                     if(parseInt(chk)==1){ //要與後端人員說好，這裡預設true(1)/faulse(0)
                         alert("帳號重複")
                     }else{
-                        delete regs.pw2;          //result
+                        delete regs.pw2; //js刪除物件內容的寫法。資料表沒有pw2欄位
+                                            //result
                         $.post('api/reg.php',regs,(res)=>{
                             alert("註冊完成,歡迎加入")
                             location.href='index.php?do=login'
-                                            
+                        // }else{    
+                            // alert("註冊失敗")            
                             })
                         }
                     })

@@ -85,6 +85,7 @@ class DB{
                                             VALUES('".implode("','",$array)."')";
         }
         return $this->pdo->exec($sql);
+                           //成功或失敗所影響的筆數(一筆成功>1，失敗>0)
 
     }
 

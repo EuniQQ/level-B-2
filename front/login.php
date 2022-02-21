@@ -12,8 +12,8 @@
         </tr>
         <tr>
             <td>
-                <button>登入</button>
-                <button>清除</button>
+                <button onclick="login()">登入</button>
+                <button onclick="reset()">清除</button>
             </td>
     
             <td>
