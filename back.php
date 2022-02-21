@@ -37,16 +37,13 @@
 						if(isset($_SESSION['login'])){
 							if($_SESSION['login']=='admin'){
 					?>
-					
 					歡迎admin,<br>
 					<button onclick="location.href='back.php'">管理</button>│
 					<button onclick="logout()">登出</button>
-					<!-- 因為logout()前後台都會用到，且兩者都會載入js，所以寫在js檔裡 -->
 				<?php	
 				}else{
 				?>	
 					歡迎<?=$_SESSION['login'];?>,<button onclick="logout()">登出</button>
-					
 				
 				<?php
 					}					

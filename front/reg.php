@@ -51,7 +51,7 @@
         //寫法一：
         //regs的acc是空值
         if(regs.acc == '' || regs.pw=='' || regs.pw2=='' || regs.email==''){ 
-        //寫法二：if(Object.values(form).indexOf('')>=0)
+        //寫法二：if(Object.values(regs).indexOf('')>=0) 表示空白是存在的
             alert("不得空白")
         }else{
             if(regs.pw!=regs.pw2){
