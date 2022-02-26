@@ -22,6 +22,7 @@
         <tr>
             <!-- 標題 -->
             <td class="switch" style="background-color:#DCDCDC"><?=$row['title'];?></td>
+            
             <!-- 內容 -->
             <td class="switch">
                 <!-- 在第二欄位建立兩個區塊： -->
@@ -30,7 +31,23 @@
                 <!-- 文章的完整內容,並預設隱藏 -->
                 <div class="t-full" style="display:none;"><?=nl2br($row['text']);?></div>
             </td>
-            <td></td>
+
+           
+            <!-- 按讚 -->
+            <td>
+                <?php
+                if(isset($_SESSION['login'])){
+                    $chk=$Log->math('count','*',['news'=>$row['id'],'user'=>$_SESSION['login']]);
+                    if($chk>0){
+                        echo "<a class='g' data-news='{$row['id']}' data-type='1'>收回讚</a>";
+                    }else{
+                        echo "<a class='g' data-news='{$row['id']}' data-type='2'>讚</a>";
+
+                    }
+                }
+                ?>
+            </td>
+           
         </tr>
 
         <?php } ?>
@@ -73,5 +90,24 @@
     //然後在tr中尋找子元素t-full及t-short
     //利用toggle()函式來對t-full及t-short做顯示的切換
     $(this).parent().find(".t-full,.t-short").toggle();
+    })
+
+    $(".g").on("click",function(){
+        let type=$(this).data('type')
+        let news=$(this).data('news')
+        $.post("api/good.php",{type,news},()=>{
+            // location.reload()
+            switch(type){
+                case 1:
+                $(this).text("讚");
+                $(this).data('type',2)
+                break;
+
+                case 2:
+                $(this).text("收回讚");
+                $(this).data('type',1)
+                break;
+            }
+        })
     })
 </script>

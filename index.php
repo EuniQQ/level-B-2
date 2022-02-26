@@ -9,29 +9,23 @@
 <script src="./js/js.js"></script>
 <style>
 	.pop{
-		background:reba(51,51,51,0.8);
+		background:rgba(51,51,51,0.8); /*最後一個是透明度*/
 		color:#FFF;
-		min-height:100px; /* 最小高度 */
-		height:500px;
-		width:400px;
-		position:fixed;
+		min-height:100px; /*最小高度*/
+		width:300px;
+		position:absolute;
 		display:none;
 		z-index:9999;
 		overflow:auto;
 		padding:10px;
 	}
 
-	.pop div{
-		font-size:20px;
-		color:skyblue;
-	}
+	
 </style>
 </head>
 
 <body>
-<div id="alerr" style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
-	<pre id="ssaa"></pre>
-</div>
+
 
 	<div id="all">
     	<?php include "front/header.php" ?>
