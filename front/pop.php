@@ -33,6 +33,7 @@
 
         <tr>
             <!-- 標題 -->
+            <!-- <td class="switch"><?=$row['title'];?></td> -->
             <td class="switch" style="background-color:#DCDCDC"><?=$row['title'];?></td>
             <!-- 內容 -->
             <td class="switch">

@@ -82,7 +82,7 @@ class DB{
         }else{
             //insert
             $sql="INSERT INTO $this->table (`".implode("`,`",array_keys($array))."`)
-                                            VALUES('".implode("','",$array)."')";
+                                     VALUES('".implode("','",$array)."')";
         }
         return $this->pdo->exec($sql);
                            //成功或失敗所影響的筆數(一筆成功>1，失敗>0)
@@ -108,7 +108,7 @@ function q($sql){
     return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function to($sql){
+function to($url){
     header("location:".$url);
 }
 
