@@ -102,6 +102,11 @@ class DB{
          return $this->pdo->exec($sql);
     }
     
+    public function dd($array){
+        echo "<pre>";
+        print_r($array);
+        echo "</pre>";
+    }
 }
 
 function q($sql){
@@ -112,11 +117,7 @@ function to($url){
     header("location:".$url);
 }
 
-function dd($array){
-    echo "<pre>";
-    print_r($array);
-    echo "</pre>";
-}
+
 
 $User=new DB('user');
 $News=new DB('news');
