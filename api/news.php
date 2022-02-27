@@ -15,4 +15,5 @@ foreach($_POST['id'] as $id){
     }
 }
 
+to("../back.php?do=news");
 ?>
