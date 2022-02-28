@@ -130,10 +130,12 @@ $Log=new DB('log');
  *   * 有->瀏灠人次加1
  *   * 沒有->增加今日的新紀錄,瀏灠人次為1
  */
-if(!isset($_SESSION['view'])){
+if(isset($_SESSION['view'])){
     if($View->math('count','*',['date'=>date("Y-m-d")])>0){
         $view=$View->find(['date'=>date("Y-m-d")]);
-        $view['total']+=1;
+        $view['total']++;
+        //寫法2: $view['total']=$view['total']+1;
+        //寫法3: $view['total']+=1;
         $View->save($view);
         $_SESSION['view']=$view['total'];
     }else{

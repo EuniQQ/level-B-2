@@ -28,6 +28,7 @@
 
 
 	<div id="all">
+	
     	<?php include "front/header.php" ?>
         <div id="mm">
         	<div class="hal" id="lef">
